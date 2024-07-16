@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,500;1,300&display=swap");
+html, body {
+  display: block;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #bfdbf7;
+  overflow-x: hidden;
+}
+
+.patientTest {
+  width: 95%;
+  height: max-content;
+  padding: 0px 0px 50px 0px;
+}
+.patientTest .dataSectionTitle {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+}
+.patientTest .dataSectionDividerLineStart {
+  border-color: #00416A;
+  margin-bottom: 50px;
+}
+.patientTest .patientAvailableTestsWrapper, .patientTest .patientCompletedTestsWrapper {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  padding: 0px 40px;
+}
+
+/*# sourceMappingURL=patientTest.css.map */

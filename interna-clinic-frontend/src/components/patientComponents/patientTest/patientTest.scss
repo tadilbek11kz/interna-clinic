@@ -1,0 +1,273 @@
+@use "../../app/app.scss";
+
+.patientTest {
+    width: 95%;
+    height: max-content;
+    padding: 0px 0px 50px 0px;
+
+    .errorMessage {
+        display: block;
+        max-width: 80%;
+        text-align: center;
+        color: red;
+        font-size: clamp(0.6rem, 1.1vw, 0.9rem) !important;
+        margin-top: 0;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dataSectionTitle {
+        font-family: app.$basic-font-family;
+        font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+    }
+
+    .dataSectionDescription {
+        font-family: app.$basic-font-family;
+        font-size: clamp(0.7rem, 1.5vw, 1.2rem) !important;
+        margin-bottom: 30px;
+    }
+
+    .dataSectionDividerLineStart {
+        border-color: app.$dark-blue-color;
+        margin-bottom: 30px;
+    }
+
+    .patientAvailableTestsWrapper,
+    .patientCompletedTestsWrapper {
+        display: flex;
+        gap: 50px;
+        flex-wrap: wrap;
+        font-family: app.$basic-font-family;
+
+        @media screen and (max-width: 700px) {
+            & {
+                justify-content: center;
+            }
+        }
+    }
+
+    .sectionNavigation {
+        max-width: 100%;
+        display: flex;
+        gap: 30px;
+        margin-bottom: 20px;
+
+        .sectionNavigation__element {
+            display: flex;
+            flex-grow: 1;
+            flex-basis: 130px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            list-style: none;
+            padding: 15px 20px;
+            border: 2px solid app.$dark-blue-color;
+            border-radius: 10px;
+            font-family: app.$basic-font-family;
+            font-size: clamp(0.5rem, 1.4vw, 1rem) !important;
+            -webkit-user-select: none;
+            user-select: none;
+            transition: 0.2s all ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.03);
+            }
+
+            @media only screen and (max-width: 700px) {
+                & {
+                    font-size: clamp(0.8rem, 1.5vw, 1.3rem) !important;
+                }
+            }
+        }
+    }
+}
+
+.stroopTest,
+.dsTest,
+.connectionTest {
+    width: 95%;
+    height: max-content;
+    padding: 0px 0px 50px 0px;
+
+    .dataSectionTitle {
+        font-family: app.$basic-font-family;
+        font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+    }
+
+    .dataSectionDescription {
+        font-family: app.$basic-font-family;
+        font-size: clamp(0.7rem, 1.5vw, 1.2rem) !important;
+        margin-bottom: 30px;
+    }
+
+    .dataSectionDividerLineStart {
+        border-color: app.$dark-blue-color;
+        margin-bottom: 50px;
+    }
+
+    .testWrapper {
+        display: flex;
+        gap: 50px;
+        flex-wrap: wrap;
+        font-family: app.$basic-font-family;
+        justify-content: center;
+    }
+
+    .testControls {
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        gap: 30px;
+        padding: 0px 20px;
+        margin-bottom: 20px;
+
+        .testControls__element {
+            display: flex;
+            flex-grow: 1;
+            flex-basis: 130px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            list-style: none;
+            padding: 15px 20px;
+            border: 2px solid app.$dark-blue-color;
+            border-radius: 10px;
+            font-family: app.$basic-font-family;
+            font-size: clamp(0.5rem, 1.4vw, 1rem) !important;
+            -webkit-user-select: none;
+            user-select: none;
+            transition: 0.2s all ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.03);
+            }
+
+            @media only screen and (max-width: 700px) {
+                & {
+                    font-size: clamp(0.8rem, 1.5vw, 1.3rem) !important;
+                }
+            }
+        }
+    }
+
+    .testArea {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        font-family: app.$basic-font-family;
+
+        .timer {
+            font-family: app.$basic-font-family;
+            font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+            margin-bottom: 20px;
+        }
+
+        .color,
+        .symbol {
+            align-self: center;
+            font-family: app.$basic-font-family;
+            font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+            margin-bottom: 20px;
+        }
+    }
+
+    .testResults {
+        font-family: app.$basic-font-family;
+    }
+}
+
+.dsTest {
+    .symbol {
+        border: 2px solid app.$dark-blue-color;
+        border-radius: 10px;
+        padding: 10px 10px;
+    }
+
+    .wrong {
+        background-color: red;
+        transition: background-color 0.3s;
+    }
+
+    .testControls {
+        flex-wrap: nowrap;
+        justify-content: center;
+
+        @media screen and (max-width: 700px) {
+            & {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+.connectionTest {
+    .testWrapper {
+        width: 50%;
+        margin: 0 auto;
+        @media screen and (max-width: 700px) {
+            & {
+                width: 95%;
+            }
+        }
+    }
+}
+
+.testSVG {
+    border: 2px solid rgba($color: app.$dark-blue-color, $alpha: 0.2);
+    border-radius: 0 0 4px 4px;
+    align-self: center;
+
+    .line {
+        display: none;
+        stroke: app.$dark-blue-color;
+        stroke-width: 2px;
+    }
+
+    .lineActive {
+        display: block;
+    }
+
+    .items {
+        display: none;
+    }
+
+    .item {
+        cursor: pointer;
+
+        .circle {
+            stroke: app.$dark-blue-color;
+            stroke-width: 2px;
+            fill: white;
+        }
+
+        .itemWrong {
+            fill: red;
+            transition: fill 0.3s;
+        }
+
+        .text {
+            text-anchor: middle;
+            fill: app.$dark-blue-color;
+        }
+    }
+
+    .itemActive {
+        pointer-events: none;
+
+        .circle {
+            stroke: app.$dark-blue-color;
+            stroke-width: 2px;
+            fill: app.$dark-blue-color;
+        }
+
+        .text {
+            font-weight: bold;
+            fill: white;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@use '../app/app.scss';
+
+.pageSelectorMenu {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+    font-family: app.$basic-font-family;
+    font-size: clamp(0.7rem, 1.5vw, 1.5rem) !important;
+    align-items: center;
+
+    .pageSelectorButton {
+        padding: 5px 15px;
+        color: app.$dark-blue-color;
+        background-color: transparent;
+        border: 1px solid app.$dark-blue-color;
+        border-radius: 5px;
+        transition: 0.2s all ease-in-out;
+
+        &:active:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+    }
+}

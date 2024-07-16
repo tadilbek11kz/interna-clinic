@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "interna-clinic-backend"
+version = "0.1.0"
+description = ""
+authors = ["Igor Ruzhilov <iruzhilov@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "3.12.0"
+fastapi = {extras = ["all"], version = "^0.110.1"}
+asyncpg = "^0.29.0"
+bcrypt = "^4.1.2"
+sqlalchemy = "^2.0.29"
+passlib = "^1.7.4"
+python-jose = "^3.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+fastapi-cli = "^0.0.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

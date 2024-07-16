@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,500;1,300&display=swap");
+html, body {
+  display: block;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #bfdbf7;
+}
+
+.loginPage {
+  width: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loginPage .loginWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.loginPage .logoImage {
+  width: clamp(130px, 10vw, 12vw);
+}
+.loginPage .login_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 40px clamp(30px, 5vw, 50px) 30px clamp(30px, 5vw, 50px);
+  background-color: #ebebeb;
+  border: 2px solid;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(1rem, 1.4rem, 2vw);
+  border-radius: 7px;
+  border: 3px solid #00416A;
+}
+.loginPage .login_box .loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+.loginPage .login_box .loginForm input {
+  margin-top: 15px;
+  font-size: 1em;
+  border-bottom: 3px solid #00416A;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  outline: 0;
+}
+.loginPage .login_box .loginForm select {
+  margin-top: 10px;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  color: #202020;
+  border-radius: 0.2em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 1em;
+  font-family: inherit;
+}
+.loginPage .login_box .loginForm select:focus {
+  outline: none;
+}
+.loginPage .login_box .loginForm select option {
+  color: inherit;
+}
+.loginPage .login_box .loginForm .submitButton {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px 40px;
+  font-size: 1.1em;
+  color: #00416A;
+  font-family: "IBM Plex Sans", sans-serif;
+  border-radius: 5px;
+  border: 3px solid #00416A;
+  transition: 0.2s all ease-in-out;
+}
+.loginPage .login_box .loginForm .submitButton:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.loginPage .login_box .loginErrorMessage {
+  margin-top: 50px;
+  font-size: 0.8em;
+  color: red;
+  max-width: 214px;
+  text-align: center;
+}/*# sourceMappingURL=loginPage.css.map */

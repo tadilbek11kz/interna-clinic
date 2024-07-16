@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,500;1,300&display=swap");
+html, body {
+  display: block;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #bfdbf7;
+  overflow-x: hidden;
+}
+
+.loader {
+  width: 50px;
+  display: grid;
+  aspect-ratio: 1;
+  border: 4px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  border-right-color: #00416A;
+  animation: infiniteRotating 1s infinite linear;
+  margin-top: 35vh;
+}
+.loader::before, .loader::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: infiniteRotating 2s infinite;
+}
+.loader::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+@keyframes infiniteRotating {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.doctorMain {
+  width: 95%;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 0px 0px 50px 0px;
+  z-index: 0;
+}
+.doctorMain .blurBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  display: block;
+}
+.doctorMain .dataSectionTitle {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+}
+.doctorMain .dataSectionDividerLineStart {
+  border-color: #00416A;
+  margin-bottom: 50px;
+}
+.doctorMain .dataSectionDividerLineEnd {
+  border-color: #00416A;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.doctorMain .personalDataWrapper, .doctorMain .medicalDataWrapper, .doctorMain .doctorAvailableTestsWrapper, .doctorMain .doctorCompletedTestsWrapper {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  padding: 0px 40px;
+}
+.doctorMain .personalDataWrapper:hover, .doctorMain .medicalDataWrapper:hover, .doctorMain .doctorAvailableTestsWrapper:hover, .doctorMain .doctorCompletedTestsWrapper:hover {
+  cursor: pointer;
+}
+.doctorMain .personalDataWrapper .doctorDataWrapper, .doctorMain .personalDataWrapper .doctorDoctorDataWrapper, .doctorMain .medicalDataWrapper .doctorDataWrapper, .doctorMain .medicalDataWrapper .doctorDoctorDataWrapper, .doctorMain .doctorAvailableTestsWrapper .doctorDataWrapper, .doctorMain .doctorAvailableTestsWrapper .doctorDoctorDataWrapper, .doctorMain .doctorCompletedTestsWrapper .doctorDataWrapper, .doctorMain .doctorCompletedTestsWrapper .doctorDoctorDataWrapper {
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+.doctorMain .personalDataWrapper .doctorDataWrapper .doctorDataLabel, .doctorMain .personalDataWrapper .doctorDataWrapper .doctorDoctorDataLabel, .doctorMain .personalDataWrapper .doctorDoctorDataWrapper .doctorDataLabel, .doctorMain .personalDataWrapper .doctorDoctorDataWrapper .doctorDoctorDataLabel, .doctorMain .medicalDataWrapper .doctorDataWrapper .doctorDataLabel, .doctorMain .medicalDataWrapper .doctorDataWrapper .doctorDoctorDataLabel, .doctorMain .medicalDataWrapper .doctorDoctorDataWrapper .doctorDataLabel, .doctorMain .medicalDataWrapper .doctorDoctorDataWrapper .doctorDoctorDataLabel, .doctorMain .doctorAvailableTestsWrapper .doctorDataWrapper .doctorDataLabel, .doctorMain .doctorAvailableTestsWrapper .doctorDataWrapper .doctorDoctorDataLabel, .doctorMain .doctorAvailableTestsWrapper .doctorDoctorDataWrapper .doctorDataLabel, .doctorMain .doctorAvailableTestsWrapper .doctorDoctorDataWrapper .doctorDoctorDataLabel, .doctorMain .doctorCompletedTestsWrapper .doctorDataWrapper .doctorDataLabel, .doctorMain .doctorCompletedTestsWrapper .doctorDataWrapper .doctorDoctorDataLabel, .doctorMain .doctorCompletedTestsWrapper .doctorDoctorDataWrapper .doctorDataLabel, .doctorMain .doctorCompletedTestsWrapper .doctorDoctorDataWrapper .doctorDoctorDataLabel {
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
+  text-align: center;
+  padding: 0px 20px;
+  color: grey;
+  font-size: clamp(0.8rem, 1.6vw, 1.3rem) !important;
+}
+@media only screen and (max-width: 550px) {
+  .doctorMain .personalDataWrapper .doctorDataWrapper .doctorDataLabel, .doctorMain .personalDataWrapper .doctorDataWrapper .doctorDoctorDataLabel, .doctorMain .personalDataWrapper .doctorDoctorDataWrapper .doctorDataLabel, .doctorMain .personalDataWrapper .doctorDoctorDataWrapper .doctorDoctorDataLabel, .doctorMain .medicalDataWrapper .doctorDataWrapper .doctorDataLabel, .doctorMain .medicalDataWrapper .doctorDataWrapper .doctorDoctorDataLabel, .doctorMain .medicalDataWrapper .doctorDoctorDataWrapper .doctorDataLabel, .doctorMain .medicalDataWrapper .doctorDoctorDataWrapper .doctorDoctorDataLabel, .doctorMain .doctorAvailableTestsWrapper .doctorDataWrapper .doctorDataLabel, .doctorMain .doctorAvailableTestsWrapper .doctorDataWrapper .doctorDoctorDataLabel, .doctorMain .doctorAvailableTestsWrapper .doctorDoctorDataWrapper .doctorDataLabel, .doctorMain .doctorAvailableTestsWrapper .doctorDoctorDataWrapper .doctorDoctorDataLabel, .doctorMain .doctorCompletedTestsWrapper .doctorDataWrapper .doctorDataLabel, .doctorMain .doctorCompletedTestsWrapper .doctorDataWrapper .doctorDoctorDataLabel, .doctorMain .doctorCompletedTestsWrapper .doctorDoctorDataWrapper .doctorDataLabel, .doctorMain .doctorCompletedTestsWrapper .doctorDoctorDataWrapper .doctorDoctorDataLabel {
+    max-width: 80%;
+  }
+}
+.doctorMain .personalDataWrapper .doctorDataWrapper .doctorDataBox, .doctorMain .personalDataWrapper .doctorDataWrapper .doctorDoctorDataBox, .doctorMain .personalDataWrapper .doctorDoctorDataWrapper .doctorDataBox, .doctorMain .personalDataWrapper .doctorDoctorDataWrapper .doctorDoctorDataBox, .doctorMain .medicalDataWrapper .doctorDataWrapper .doctorDataBox, .doctorMain .medicalDataWrapper .doctorDataWrapper .doctorDoctorDataBox, .doctorMain .medicalDataWrapper .doctorDoctorDataWrapper .doctorDataBox, .doctorMain .medicalDataWrapper .doctorDoctorDataWrapper .doctorDoctorDataBox, .doctorMain .doctorAvailableTestsWrapper .doctorDataWrapper .doctorDataBox, .doctorMain .doctorAvailableTestsWrapper .doctorDataWrapper .doctorDoctorDataBox, .doctorMain .doctorAvailableTestsWrapper .doctorDoctorDataWrapper .doctorDataBox, .doctorMain .doctorAvailableTestsWrapper .doctorDoctorDataWrapper .doctorDoctorDataBox, .doctorMain .doctorCompletedTestsWrapper .doctorDataWrapper .doctorDataBox, .doctorMain .doctorCompletedTestsWrapper .doctorDataWrapper .doctorDoctorDataBox, .doctorMain .doctorCompletedTestsWrapper .doctorDoctorDataWrapper .doctorDataBox, .doctorMain .doctorCompletedTestsWrapper .doctorDoctorDataWrapper .doctorDoctorDataBox {
+  display: flex;
+  min-width: 150px;
+  height: 100%;
+  padding: 10px 20px;
+  background-color: #ebebeb;
+  border-radius: 10px;
+  border: 3px solid #00416A;
+  font-size: clamp(0.8rem, 1.6vw, 1.3rem) !important;
+}
+.doctorMain .accoutActionsSectionTitle {
+  display: none;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+  margin-top: 70px;
+}
+@media only screen and (max-width: 1150px) {
+  .doctorMain .accoutActionsSectionTitle {
+    display: block;
+  }
+}
+.doctorMain .accoutActionsDividerLineStart {
+  display: none;
+  border-color: #00416A;
+  margin-bottom: 50px;
+}
+@media only screen and (max-width: 1150px) {
+  .doctorMain .accoutActionsDividerLineStart {
+    display: block;
+  }
+}
+.doctorMain .logOutButton {
+  display: none;
+  padding: 10px 15px;
+  font-size: clamp(1rem, 1vw, 1.8rem) !important;
+  color: red;
+  border: 2px solid red;
+  border-radius: 5px;
+  transition: 0.2s all ease-in-out;
+}
+.doctorMain .logOutButton:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+@media only screen and (max-width: 1150px) {
+  .doctorMain .logOutButton {
+    display: block;
+  }
+}
+.doctorMain .searchBarWrapper {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 5px;
+  background-color: #ebebeb;
+  margin-bottom: 20px;
+  border: 2px solid #00416A;
+  margin-left: auto;
+  margin-right: auto;
+}
+.doctorMain .searchBarWrapper .searchBar {
+  min-width: 309px;
+  font-size: clamp(0.8rem, 1.3vw, 1rem) !important;
+  text-align: center;
+  border-top: 0;
+  border-left: 0;
+  border-right: 1px solid #00416A;
+  border-bottom: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.doctorMain .searchBarWrapper .searchButton {
+  height: clamp(33px, 1.7vw, 2vw);
+  width: clamp(33px, 1.7vw, 2vw);
+  padding: 3px 5px;
+}
+.doctorMain .searchBarWrapper .searchButton:hover {
+  cursor: pointer;
+}
+.doctorMain .addPatientButton {
+  display: block;
+  padding: 10px 15px;
+  background-color: #ebebeb;
+  border-radius: 5px;
+  border: 3px solid green;
+  color: green;
+  font-size: clamp(0.7rem, 1.2vw, 1rem) !important;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.2s all ease-in-out;
+}
+.doctorMain .addPatientButton:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+.doctorMain .doctorPatientsTable {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  background-color: #00416A;
+  border-top: 3px solid #00416A;
+  border-left: 3px solid #00416A;
+  border-right: 3px solid #00416A;
+  border-bottom: 0px solid #00416A;
+  border-radius: 5px;
+  gap: 1px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(0.6rem, 1.3vw, 1rem) !important;
+}
+.doctorMain .doctorPatientsTable .doctorPatientWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 4vw);
+  height: 70px;
+  border-bottom: 3px solid #00416A;
+  padding: 0px 2vw;
+  background-color: #ebebeb;
+  border-radius: 4px;
+}
+.doctorMain .doctorPatientsTable .doctorPatientWrapper .doctorPatientDataBox {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+  min-width: 30vw;
+}
+.doctorMain .doctorPatientsTable .doctorPatientWrapper .doctorPatientDataBox .patientAge {
+  color: grey;
+}
+.doctorMain .doctorPatientsTable .doctorPatientWrapper .doctorPatientControlMenuWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-width: 5vw;
+  width: -moz-max-content;
+  width: max-content;
+}
+.doctorMain .doctorPatientsTable .doctorPatientWrapper .doctorPatientControlMenuWrapper .deletePatientButton {
+  height: clamp(30px, 2vw, 2vw);
+  width: clamp(30px, 2vw, 2vw);
+  transition: 0.2s all ease-in-out;
+}
+.doctorMain .doctorPatientsTable .doctorPatientWrapper .doctorPatientControlMenuWrapper .deletePatientButton:hover {
+  cursor: pointer;
+  animation: smallControlMenuButtonSpinning 0.6s infinite forwards linear;
+}
+.doctorMain .doctorPatientsTable .doctorPatientWrapper .doctorPatientControlMenuWrapper .editPatientButton {
+  height: clamp(33px, 2.3vw, 2.3vw);
+  width: clamp(33px, 2.3vw, 2.3vw);
+  transition: 0.2s all ease-in-out;
+}
+.doctorMain .doctorPatientsTable .doctorPatientWrapper .doctorPatientControlMenuWrapper .editPatientButton:hover {
+  cursor: pointer;
+  animation: smallControlMenuButtonSpinning 0.6s infinite forwards linear;
+}
+@keyframes smallControlMenuButtonSpinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.doctorMain .doctorPatientsTable .notFoundTextError {
+  color: grey;
+  background-color: #ebebeb;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0px;
+  font-size: clamp(1rem, 2vw, 1.8rem) !important;
+  text-align: center;
+  border-bottom: 3px solid #00416A;
+}/*# sourceMappingURL=doctorMain.css.map */

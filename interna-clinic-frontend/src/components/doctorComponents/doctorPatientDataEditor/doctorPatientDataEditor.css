@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,500;1,300&display=swap");
+html, body {
+  display: block;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #bfdbf7;
+  overflow-x: hidden;
+}
+
+.dataEditorLoader {
+  display: grid;
+  width: 50px;
+  aspect-ratio: 1;
+  border: 4px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  border-right-color: #00416A;
+  animation: infiniteRotating 1s infinite linear;
+  margin-top: calc(30% - 30px);
+  margin-left: calc(50% - 35px);
+  margin-bottom: 100px;
+}
+.dataEditorLoader::before, .dataEditorLoader::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: infiniteRotating 2s infinite;
+}
+.dataEditorLoader::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+@keyframes infiniteRotating {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.patientDataEditorBox {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: clamp(350px, 30%, 40%);
+  max-height: 90vh !important;
+  background-color: #ebebeb;
+  border: 3px solid #00416A;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(0.7rem, 1.6vw, 1.3rem);
+  overflow-y: auto;
+  padding-bottom: 30px;
+  overflow-x: hidden;
+}
+.patientDataEditorBox .patientDataEditorHeaderBox {
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 10px;
+}
+.patientDataEditorBox .closePatientDataEditorButton {
+  transition: 0.2s all ease-in-out;
+}
+.patientDataEditorBox .closePatientDataEditorButton:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.patientDataEditorBox .patientDataInputsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+.patientDataEditorBox .patidentDataInputsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.patientDataEditorBox .patidentDataInputsWrapper .patientDataLabel {
+  color: grey;
+  width: calc(80% - 40px);
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: clamp(0.9rem, 1.3vw, 1.3rem) !important;
+}
+.patientDataEditorBox .patidentDataInputsWrapper .patidentDataInput {
+  width: calc(80% - 40px);
+  padding: 5px 10px;
+  font-family: "IBM Plex Sans", sans-serif;
+  border: 2px solid #00416A;
+  border-radius: 5px;
+  background-color: #ebebeb;
+  color: #202020;
+}
+.patientDataEditorBox .patidentDataInputsWrapper .patidentDataSelect {
+  width: calc(80% - 16px);
+  padding: 5px 10px;
+  font-family: "IBM Plex Sans", sans-serif;
+  border: 2px solid #00416A;
+  border-radius: 5px;
+  background-color: #ebebeb;
+  color: #202020;
+}
+.patientDataEditorBox .patidentDataInputsWrapper .patidentDataCheckBoxesWrapper {
+  max-width: 100%;
+  border: 2px solid transparent;
+  padding: 25px;
+}
+.patientDataEditorBox .patientDataSaveButton {
+  height: -moz-max-content;
+  height: max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 15px 20px 13px 20px;
+  color: green;
+  border: 3px solid green;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.2s all ease-in-out;
+}
+.patientDataEditorBox .patientDataSaveButton:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.patientDataEditorBox .errorMessage {
+  display: block;
+  max-width: 80%;
+  text-align: center;
+  color: red;
+  font-size: clamp(0.6rem, 1.1vw, 0.9rem) !important;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}/*# sourceMappingURL=doctorPatientDataEditor.css.map */

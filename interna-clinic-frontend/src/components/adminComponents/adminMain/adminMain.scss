@@ -1,0 +1,279 @@
+@use '../../app/app.scss';
+
+.loader {
+    width: 50px;
+    display: grid;
+    aspect-ratio: 1;
+    border: 4px solid #0000;
+    border-radius: 50%;
+    border-right-color: app.$dark-blue-color;
+    animation: infiniteRotating 1s infinite linear;
+    margin-top: 35vh;
+
+    &::before, &::after {
+        content: "";
+        grid-area: 1/1;
+        margin: 2px;
+        border: inherit;
+        border-radius: 50%;
+        animation: infiniteRotating 2s infinite;
+    }
+
+    &::after {
+        margin: 8px;
+        animation-duration: 3s;
+    }
+
+    @keyframes infiniteRotating { 
+        100% {
+            transform: rotate(1turn)
+        }
+    }
+}
+
+.adminMain {
+    width: 95%;
+    height: max-content;
+    padding: 0px 0px 50px 0px;
+    z-index: 0;
+    font-family: app.$basic-font-family;
+
+    .blurBackground {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        display: block;
+    }
+
+    .dataSectionTitle {
+        font-family: app.$basic-font-family;
+        font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+    }
+
+    .dataSectionDividerLineStart {
+        border-color: app.$dark-blue-color;
+        margin-bottom: 50px;
+    }
+
+    .accoutActionsSectionTitle {
+        display: none;
+        font-family: app.$basic-font-family;
+        font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+        margin-top: 70px;
+
+        @media only screen and (max-width: 1150px) {
+            display: block;
+        }
+    }
+
+    .accoutActionsDividerLineStart {
+        display: none;
+        border-color: app.$dark-blue-color;
+        margin-bottom: 50px;
+
+        @media only screen and (max-width: 1150px) {
+            display: block;
+        }
+    }
+
+    .logOutButton {
+        display: none;
+        padding: 10px 15px;
+        font-size: clamp(1rem, 1vw, 1.8rem) !important;
+        color: red;
+        border: 2px solid red;
+        border-radius: 5px;
+        transition: 0.2s all ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+
+        @media only screen and (max-width: 1150px) {
+            display: block;
+        }
+    }
+
+    .searchBarWrapper {
+        display: flex;
+        width: max-content;
+        border-radius: 5px;
+        background-color: app.$white-color;
+        margin-bottom: 20px;
+        border: 2px solid app.$dark-blue-color;
+        margin-left: auto;
+        margin-right: auto;
+
+        .searchBar {
+            min-width: 309px;
+            font-size: clamp(0.8rem, 1.3vw, 1rem) !important;
+            text-align: center;
+            border-top: 0;
+            border-left: 0;
+            border-right: 1px solid app.$dark-blue-color;
+            border-bottom: 0;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        .searchButton {
+            height: clamp(33px, 1.7vw, 2vw);
+            width: clamp(33px, 1.7vw, 2vw);
+            padding: 3px 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .addPatientButton, .addDoctorButton, .addAdminButton, .savePatientsButton {
+        display: block;
+        padding: 10px 15px;
+        background-color: app.$white-color;
+        border-radius: 5px;
+        border: 3px solid green;
+        color: green;
+        font-size: clamp(0.7rem, 1.2vw, 1rem) !important;
+        margin-bottom: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        transition: 0.2s all ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.03);
+        }
+    }
+
+    .buttonGroup {
+        display: flex;
+        justify-content: center;
+        .addPatientButton, .savePatientsButton {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
+
+    .patientsTable, .doctorsTable, .adminsTable {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        background-color: app.$dark-blue-color;
+        border-top: 3px solid app.$dark-blue-color;
+        border-left: 3px solid app.$dark-blue-color;
+        border-right: 3px solid app.$dark-blue-color;
+        border-bottom: 0px solid app.$dark-blue-color;
+        border-radius: 5px;
+        gap: 1px;
+        font-family: app.$basic-font-family;
+        font-size: clamp(0.6rem, 1.3vw, 1rem) !important;
+
+        .patientWrapper, .doctorWrapper, .adminWrapper {
+            display: flex;
+            justify-content: space-between;
+            width: calc(100% - 4vw);
+            height: 70px;
+            border-bottom: 3px solid app.$dark-blue-color;
+            padding: 0px 2vw;
+            background-color: app.$white-color;
+            border-radius: 4px;
+
+            .patientDataBox, .doctorDataBox, .adminDataBox {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                height: 100%;
+                min-width: 30vw;
+
+                .patientAge, .doctorAge, .adminUsername {
+                    color: grey;
+                }
+            }
+
+            .patientControlMenuWrapper, .doctorControlMenuWrapper, .adminControlMenuWrapper {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                min-width: 5vw;
+                width: max-content;
+
+                .deletePatientButton, .deleteDoctorButton, .deleteAdminButton {
+                    height: clamp(30px, 2vw, 2vw);
+                    width: clamp(30px, 2vw, 2vw);
+                    transition: 0.2s all ease-in-out;
+
+                    &:hover {
+                        cursor: pointer;
+                        animation: smallControlMenuButtonSpinning 0.6s infinite forwards linear;
+                    }
+                }
+
+                .editPatientButton, .editDoctorButton, .editAdminButton {
+                    height: clamp(33px, 2.3vw, 2.3vw);
+                    width: clamp(33px, 2.3vw, 2.3vw);
+                    transition: 0.2s all ease-in-out;
+
+                    &:hover {
+                        cursor: pointer;
+                        animation: smallControlMenuButtonSpinning 0.6s infinite forwards linear;
+                    }
+                }
+
+                @keyframes smallControlMenuButtonSpinning {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    25% {
+                        transform: rotate(10deg);
+                    }
+                    50% {
+                        transform: rotate(0deg);
+                    }
+                    75% {
+                        transform: rotate(-10deg);
+                    }
+                    100% {
+                        transform: rotate(0deg);
+                    }
+                }
+            }
+        }
+
+        .notFoundTextError {
+            color: grey;
+            background-color: app.$white-color;
+            width: 100%;
+            margin: 0;
+            padding: 20px 0px;
+            font-size: clamp(1rem, 2vw, 1.8rem) !important;
+            text-align: center;
+            border-bottom: 3px solid app.$dark-blue-color;
+        }
+    }
+
+    .logOutButton {
+        display: none;
+        padding: 10px 15px;
+        font-size: clamp(1rem, 1vw, 1.8rem) !important;
+        color: red;
+        border: 2px solid red;
+        border-radius: 5px;
+        transition: 0.2s all ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+
+        @media only screen and (max-width: 1150px) {
+            display: block;
+        }
+    }
+}

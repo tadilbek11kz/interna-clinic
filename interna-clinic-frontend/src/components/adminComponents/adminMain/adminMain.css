@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,500;1,300&display=swap");
+html, body {
+  display: block;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #bfdbf7;
+  overflow-x: hidden;
+}
+
+.loader {
+  width: 50px;
+  display: grid;
+  aspect-ratio: 1;
+  border: 4px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  border-right-color: #00416A;
+  animation: infiniteRotating 1s infinite linear;
+  margin-top: 35vh;
+}
+.loader::before, .loader::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: infiniteRotating 2s infinite;
+}
+.loader::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+@keyframes infiniteRotating {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.adminMain {
+  width: 95%;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 0px 0px 50px 0px;
+  z-index: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+.adminMain .blurBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  display: block;
+}
+.adminMain .dataSectionTitle {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+}
+.adminMain .dataSectionDividerLineStart {
+  border-color: #00416A;
+  margin-bottom: 50px;
+}
+.adminMain .accoutActionsSectionTitle {
+  display: none;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+  margin-top: 70px;
+}
+@media only screen and (max-width: 1150px) {
+  .adminMain .accoutActionsSectionTitle {
+    display: block;
+  }
+}
+.adminMain .accoutActionsDividerLineStart {
+  display: none;
+  border-color: #00416A;
+  margin-bottom: 50px;
+}
+@media only screen and (max-width: 1150px) {
+  .adminMain .accoutActionsDividerLineStart {
+    display: block;
+  }
+}
+.adminMain .logOutButton {
+  display: none;
+  padding: 10px 15px;
+  font-size: clamp(1rem, 1vw, 1.8rem) !important;
+  color: red;
+  border: 2px solid red;
+  border-radius: 5px;
+  transition: 0.2s all ease-in-out;
+}
+.adminMain .logOutButton:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+@media only screen and (max-width: 1150px) {
+  .adminMain .logOutButton {
+    display: block;
+  }
+}
+.adminMain .searchBarWrapper {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 5px;
+  background-color: #ebebeb;
+  margin-bottom: 20px;
+  border: 2px solid #00416A;
+  margin-left: auto;
+  margin-right: auto;
+}
+.adminMain .searchBarWrapper .searchBar {
+  min-width: 309px;
+  font-size: clamp(0.8rem, 1.3vw, 1rem) !important;
+  text-align: center;
+  border-top: 0;
+  border-left: 0;
+  border-right: 1px solid #00416A;
+  border-bottom: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.adminMain .searchBarWrapper .searchButton {
+  height: clamp(33px, 1.7vw, 2vw);
+  width: clamp(33px, 1.7vw, 2vw);
+  padding: 3px 5px;
+}
+.adminMain .searchBarWrapper .searchButton:hover {
+  cursor: pointer;
+}
+.adminMain .addPatientButton, .adminMain .addDoctorButton, .adminMain .addAdminButton {
+  display: block;
+  padding: 10px 15px;
+  background-color: #ebebeb;
+  border-radius: 5px;
+  border: 3px solid green;
+  color: green;
+  font-size: clamp(0.7rem, 1.2vw, 1rem) !important;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.2s all ease-in-out;
+}
+.adminMain .addPatientButton:hover, .adminMain .addDoctorButton:hover, .adminMain .addAdminButton:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+.adminMain .patientsTable, .adminMain .doctorsTable, .adminMain .adminsTable {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  background-color: #00416A;
+  border-top: 3px solid #00416A;
+  border-left: 3px solid #00416A;
+  border-right: 3px solid #00416A;
+  border-bottom: 0px solid #00416A;
+  border-radius: 5px;
+  gap: 1px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(0.6rem, 1.3vw, 1rem) !important;
+}
+.adminMain .patientsTable .patientWrapper, .adminMain .patientsTable .doctorWrapper, .adminMain .patientsTable .adminWrapper, .adminMain .doctorsTable .patientWrapper, .adminMain .doctorsTable .doctorWrapper, .adminMain .doctorsTable .adminWrapper, .adminMain .adminsTable .patientWrapper, .adminMain .adminsTable .doctorWrapper, .adminMain .adminsTable .adminWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 4vw);
+  height: 70px;
+  border-bottom: 3px solid #00416A;
+  padding: 0px 2vw;
+  background-color: #ebebeb;
+  border-radius: 4px;
+}
+.adminMain .patientsTable .patientWrapper .patientDataBox, .adminMain .patientsTable .patientWrapper .doctorDataBox, .adminMain .patientsTable .patientWrapper .adminDataBox, .adminMain .patientsTable .doctorWrapper .patientDataBox, .adminMain .patientsTable .doctorWrapper .doctorDataBox, .adminMain .patientsTable .doctorWrapper .adminDataBox, .adminMain .patientsTable .adminWrapper .patientDataBox, .adminMain .patientsTable .adminWrapper .doctorDataBox, .adminMain .patientsTable .adminWrapper .adminDataBox, .adminMain .doctorsTable .patientWrapper .patientDataBox, .adminMain .doctorsTable .patientWrapper .doctorDataBox, .adminMain .doctorsTable .patientWrapper .adminDataBox, .adminMain .doctorsTable .doctorWrapper .patientDataBox, .adminMain .doctorsTable .doctorWrapper .doctorDataBox, .adminMain .doctorsTable .doctorWrapper .adminDataBox, .adminMain .doctorsTable .adminWrapper .patientDataBox, .adminMain .doctorsTable .adminWrapper .doctorDataBox, .adminMain .doctorsTable .adminWrapper .adminDataBox, .adminMain .adminsTable .patientWrapper .patientDataBox, .adminMain .adminsTable .patientWrapper .doctorDataBox, .adminMain .adminsTable .patientWrapper .adminDataBox, .adminMain .adminsTable .doctorWrapper .patientDataBox, .adminMain .adminsTable .doctorWrapper .doctorDataBox, .adminMain .adminsTable .doctorWrapper .adminDataBox, .adminMain .adminsTable .adminWrapper .patientDataBox, .adminMain .adminsTable .adminWrapper .doctorDataBox, .adminMain .adminsTable .adminWrapper .adminDataBox {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+  min-width: 30vw;
+}
+.adminMain .patientsTable .patientWrapper .patientDataBox .patientAge, .adminMain .patientsTable .patientWrapper .patientDataBox .doctorAge, .adminMain .patientsTable .patientWrapper .patientDataBox .adminUsername, .adminMain .patientsTable .patientWrapper .doctorDataBox .patientAge, .adminMain .patientsTable .patientWrapper .doctorDataBox .doctorAge, .adminMain .patientsTable .patientWrapper .doctorDataBox .adminUsername, .adminMain .patientsTable .patientWrapper .adminDataBox .patientAge, .adminMain .patientsTable .patientWrapper .adminDataBox .doctorAge, .adminMain .patientsTable .patientWrapper .adminDataBox .adminUsername, .adminMain .patientsTable .doctorWrapper .patientDataBox .patientAge, .adminMain .patientsTable .doctorWrapper .patientDataBox .doctorAge, .adminMain .patientsTable .doctorWrapper .patientDataBox .adminUsername, .adminMain .patientsTable .doctorWrapper .doctorDataBox .patientAge, .adminMain .patientsTable .doctorWrapper .doctorDataBox .doctorAge, .adminMain .patientsTable .doctorWrapper .doctorDataBox .adminUsername, .adminMain .patientsTable .doctorWrapper .adminDataBox .patientAge, .adminMain .patientsTable .doctorWrapper .adminDataBox .doctorAge, .adminMain .patientsTable .doctorWrapper .adminDataBox .adminUsername, .adminMain .patientsTable .adminWrapper .patientDataBox .patientAge, .adminMain .patientsTable .adminWrapper .patientDataBox .doctorAge, .adminMain .patientsTable .adminWrapper .patientDataBox .adminUsername, .adminMain .patientsTable .adminWrapper .doctorDataBox .patientAge, .adminMain .patientsTable .adminWrapper .doctorDataBox .doctorAge, .adminMain .patientsTable .adminWrapper .doctorDataBox .adminUsername, .adminMain .patientsTable .adminWrapper .adminDataBox .patientAge, .adminMain .patientsTable .adminWrapper .adminDataBox .doctorAge, .adminMain .patientsTable .adminWrapper .adminDataBox .adminUsername, .adminMain .doctorsTable .patientWrapper .patientDataBox .patientAge, .adminMain .doctorsTable .patientWrapper .patientDataBox .doctorAge, .adminMain .doctorsTable .patientWrapper .patientDataBox .adminUsername, .adminMain .doctorsTable .patientWrapper .doctorDataBox .patientAge, .adminMain .doctorsTable .patientWrapper .doctorDataBox .doctorAge, .adminMain .doctorsTable .patientWrapper .doctorDataBox .adminUsername, .adminMain .doctorsTable .patientWrapper .adminDataBox .patientAge, .adminMain .doctorsTable .patientWrapper .adminDataBox .doctorAge, .adminMain .doctorsTable .patientWrapper .adminDataBox .adminUsername, .adminMain .doctorsTable .doctorWrapper .patientDataBox .patientAge, .adminMain .doctorsTable .doctorWrapper .patientDataBox .doctorAge, .adminMain .doctorsTable .doctorWrapper .patientDataBox .adminUsername, .adminMain .doctorsTable .doctorWrapper .doctorDataBox .patientAge, .adminMain .doctorsTable .doctorWrapper .doctorDataBox .doctorAge, .adminMain .doctorsTable .doctorWrapper .doctorDataBox .adminUsername, .adminMain .doctorsTable .doctorWrapper .adminDataBox .patientAge, .adminMain .doctorsTable .doctorWrapper .adminDataBox .doctorAge, .adminMain .doctorsTable .doctorWrapper .adminDataBox .adminUsername, .adminMain .doctorsTable .adminWrapper .patientDataBox .patientAge, .adminMain .doctorsTable .adminWrapper .patientDataBox .doctorAge, .adminMain .doctorsTable .adminWrapper .patientDataBox .adminUsername, .adminMain .doctorsTable .adminWrapper .doctorDataBox .patientAge, .adminMain .doctorsTable .adminWrapper .doctorDataBox .doctorAge, .adminMain .doctorsTable .adminWrapper .doctorDataBox .adminUsername, .adminMain .doctorsTable .adminWrapper .adminDataBox .patientAge, .adminMain .doctorsTable .adminWrapper .adminDataBox .doctorAge, .adminMain .doctorsTable .adminWrapper .adminDataBox .adminUsername, .adminMain .adminsTable .patientWrapper .patientDataBox .patientAge, .adminMain .adminsTable .patientWrapper .patientDataBox .doctorAge, .adminMain .adminsTable .patientWrapper .patientDataBox .adminUsername, .adminMain .adminsTable .patientWrapper .doctorDataBox .patientAge, .adminMain .adminsTable .patientWrapper .doctorDataBox .doctorAge, .adminMain .adminsTable .patientWrapper .doctorDataBox .adminUsername, .adminMain .adminsTable .patientWrapper .adminDataBox .patientAge, .adminMain .adminsTable .patientWrapper .adminDataBox .doctorAge, .adminMain .adminsTable .patientWrapper .adminDataBox .adminUsername, .adminMain .adminsTable .doctorWrapper .patientDataBox .patientAge, .adminMain .adminsTable .doctorWrapper .patientDataBox .doctorAge, .adminMain .adminsTable .doctorWrapper .patientDataBox .adminUsername, .adminMain .adminsTable .doctorWrapper .doctorDataBox .patientAge, .adminMain .adminsTable .doctorWrapper .doctorDataBox .doctorAge, .adminMain .adminsTable .doctorWrapper .doctorDataBox .adminUsername, .adminMain .adminsTable .doctorWrapper .adminDataBox .patientAge, .adminMain .adminsTable .doctorWrapper .adminDataBox .doctorAge, .adminMain .adminsTable .doctorWrapper .adminDataBox .adminUsername, .adminMain .adminsTable .adminWrapper .patientDataBox .patientAge, .adminMain .adminsTable .adminWrapper .patientDataBox .doctorAge, .adminMain .adminsTable .adminWrapper .patientDataBox .adminUsername, .adminMain .adminsTable .adminWrapper .doctorDataBox .patientAge, .adminMain .adminsTable .adminWrapper .doctorDataBox .doctorAge, .adminMain .adminsTable .adminWrapper .doctorDataBox .adminUsername, .adminMain .adminsTable .adminWrapper .adminDataBox .patientAge, .adminMain .adminsTable .adminWrapper .adminDataBox .doctorAge, .adminMain .adminsTable .adminWrapper .adminDataBox .adminUsername {
+  color: grey;
+}
+.adminMain .patientsTable .patientWrapper .patientControlMenuWrapper, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-width: 5vw;
+  width: -moz-max-content;
+  width: max-content;
+}
+.adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .deletePatientButton, .adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .deleteDoctorButton, .adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .deleteAdminButton, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .deletePatientButton, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .deleteDoctorButton, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .deleteAdminButton, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .deletePatientButton, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .deleteDoctorButton, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .deleteAdminButton, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .deletePatientButton, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .deleteDoctorButton, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .deleteAdminButton, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .deletePatientButton, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .deleteDoctorButton, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .deleteAdminButton, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .deletePatientButton, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .deleteDoctorButton, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .deleteAdminButton, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .deletePatientButton, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .deleteDoctorButton, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .deleteAdminButton, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .deletePatientButton, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .deleteDoctorButton, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .deleteAdminButton, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .deletePatientButton, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .deleteDoctorButton, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .deleteAdminButton, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .deletePatientButton, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .deleteDoctorButton, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .deleteAdminButton, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .deletePatientButton, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .deleteDoctorButton, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .deleteAdminButton, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .deletePatientButton, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .deleteDoctorButton, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .deleteAdminButton, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .deletePatientButton, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .deleteDoctorButton, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .deleteAdminButton, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .deletePatientButton, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .deleteDoctorButton, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .deleteAdminButton, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .deletePatientButton, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .deleteDoctorButton, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .deleteAdminButton, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .deletePatientButton, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .deleteDoctorButton, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .deleteAdminButton, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .deletePatientButton, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .deleteDoctorButton, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .deleteAdminButton, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .deletePatientButton, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .deleteDoctorButton, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .deleteAdminButton, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .deletePatientButton, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .deleteDoctorButton, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .deleteAdminButton, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .deletePatientButton, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .deleteDoctorButton, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .deleteAdminButton, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .deletePatientButton, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .deleteDoctorButton, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .deleteAdminButton, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .deletePatientButton, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .deleteDoctorButton, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .deleteAdminButton, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .deletePatientButton, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .deleteDoctorButton, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .deleteAdminButton, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .deletePatientButton, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .deleteDoctorButton, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .deleteAdminButton, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .deletePatientButton, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .deleteDoctorButton, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .deleteAdminButton, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .deletePatientButton, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .deleteDoctorButton, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .deleteAdminButton, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .deletePatientButton, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .deleteDoctorButton, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .deleteAdminButton {
+  height: clamp(30px, 2vw, 2vw);
+  width: clamp(30px, 2vw, 2vw);
+  transition: 0.2s all ease-in-out;
+}
+.adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .deletePatientButton:hover, .adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .deleteDoctorButton:hover, .adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .deleteAdminButton:hover, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .deletePatientButton:hover, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .deleteDoctorButton:hover, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .deleteAdminButton:hover, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .deletePatientButton:hover, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .deleteDoctorButton:hover, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .deleteAdminButton:hover, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .deletePatientButton:hover, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .deleteDoctorButton:hover, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .deleteAdminButton:hover, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .deletePatientButton:hover, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .deleteDoctorButton:hover, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .deleteAdminButton:hover, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .deletePatientButton:hover, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .deleteDoctorButton:hover, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .deleteAdminButton:hover, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .deletePatientButton:hover, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .deleteDoctorButton:hover, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .deleteAdminButton:hover, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .deletePatientButton:hover, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .deleteDoctorButton:hover, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .deleteAdminButton:hover, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .deletePatientButton:hover, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .deleteDoctorButton:hover, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .deleteAdminButton:hover, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .deletePatientButton:hover, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .deleteDoctorButton:hover, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .deleteAdminButton:hover, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .deletePatientButton:hover, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .deleteDoctorButton:hover, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .deleteAdminButton:hover, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .deletePatientButton:hover, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .deleteDoctorButton:hover, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .deleteAdminButton:hover, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .deletePatientButton:hover, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .deleteDoctorButton:hover, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .deleteAdminButton:hover, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .deletePatientButton:hover, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .deleteDoctorButton:hover, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .deleteAdminButton:hover, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .deletePatientButton:hover, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .deleteDoctorButton:hover, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .deleteAdminButton:hover, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .deletePatientButton:hover, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .deleteDoctorButton:hover, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .deleteAdminButton:hover, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .deletePatientButton:hover, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .deleteDoctorButton:hover, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .deleteAdminButton:hover, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .deletePatientButton:hover, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .deleteDoctorButton:hover, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .deleteAdminButton:hover, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .deletePatientButton:hover, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .deleteDoctorButton:hover, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .deleteAdminButton:hover, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .deletePatientButton:hover, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .deleteDoctorButton:hover, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .deleteAdminButton:hover, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .deletePatientButton:hover, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .deleteDoctorButton:hover, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .deleteAdminButton:hover, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .deletePatientButton:hover, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .deleteDoctorButton:hover, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .deleteAdminButton:hover, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .deletePatientButton:hover, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .deleteDoctorButton:hover, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .deleteAdminButton:hover, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .deletePatientButton:hover, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .deleteDoctorButton:hover, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .deleteAdminButton:hover, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .deletePatientButton:hover, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .deleteDoctorButton:hover, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .deleteAdminButton:hover, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .deletePatientButton:hover, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .deleteDoctorButton:hover, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .deleteAdminButton:hover, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .deletePatientButton:hover, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .deleteDoctorButton:hover, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .deleteAdminButton:hover {
+  cursor: pointer;
+  animation: smallControlMenuButtonSpinning 0.6s infinite forwards linear;
+}
+.adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .editPatientButton, .adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .editDoctorButton, .adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .editAdminButton, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .editPatientButton, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .editDoctorButton, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .editAdminButton, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .editPatientButton, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .editDoctorButton, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .editAdminButton, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .editPatientButton, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .editDoctorButton, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .editAdminButton, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .editPatientButton, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .editDoctorButton, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .editAdminButton, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .editPatientButton, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .editDoctorButton, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .editAdminButton, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .editPatientButton, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .editDoctorButton, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .editAdminButton, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .editPatientButton, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .editDoctorButton, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .editAdminButton, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .editPatientButton, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .editDoctorButton, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .editAdminButton, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .editPatientButton, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .editDoctorButton, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .editAdminButton, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .editPatientButton, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .editDoctorButton, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .editAdminButton, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .editPatientButton, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .editDoctorButton, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .editAdminButton, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .editPatientButton, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .editDoctorButton, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .editAdminButton, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .editPatientButton, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .editDoctorButton, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .editAdminButton, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .editPatientButton, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .editDoctorButton, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .editAdminButton, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .editPatientButton, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .editDoctorButton, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .editAdminButton, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .editPatientButton, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .editDoctorButton, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .editAdminButton, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .editPatientButton, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .editDoctorButton, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .editAdminButton, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .editPatientButton, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .editDoctorButton, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .editAdminButton, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .editPatientButton, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .editDoctorButton, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .editAdminButton, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .editPatientButton, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .editDoctorButton, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .editAdminButton, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .editPatientButton, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .editDoctorButton, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .editAdminButton, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .editPatientButton, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .editDoctorButton, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .editAdminButton, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .editPatientButton, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .editDoctorButton, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .editAdminButton, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .editPatientButton, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .editDoctorButton, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .editAdminButton, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .editPatientButton, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .editDoctorButton, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .editAdminButton, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .editPatientButton, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .editDoctorButton, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .editAdminButton {
+  height: clamp(33px, 2.3vw, 2.3vw);
+  width: clamp(33px, 2.3vw, 2.3vw);
+  transition: 0.2s all ease-in-out;
+}
+.adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .editPatientButton:hover, .adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .editDoctorButton:hover, .adminMain .patientsTable .patientWrapper .patientControlMenuWrapper .editAdminButton:hover, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .editPatientButton:hover, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .editDoctorButton:hover, .adminMain .patientsTable .patientWrapper .doctorControlMenuWrapper .editAdminButton:hover, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .editPatientButton:hover, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .editDoctorButton:hover, .adminMain .patientsTable .patientWrapper .adminControlMenuWrapper .editAdminButton:hover, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .editPatientButton:hover, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .editDoctorButton:hover, .adminMain .patientsTable .doctorWrapper .patientControlMenuWrapper .editAdminButton:hover, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .editPatientButton:hover, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .editDoctorButton:hover, .adminMain .patientsTable .doctorWrapper .doctorControlMenuWrapper .editAdminButton:hover, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .editPatientButton:hover, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .editDoctorButton:hover, .adminMain .patientsTable .doctorWrapper .adminControlMenuWrapper .editAdminButton:hover, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .editPatientButton:hover, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .editDoctorButton:hover, .adminMain .patientsTable .adminWrapper .patientControlMenuWrapper .editAdminButton:hover, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .editPatientButton:hover, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .editDoctorButton:hover, .adminMain .patientsTable .adminWrapper .doctorControlMenuWrapper .editAdminButton:hover, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .editPatientButton:hover, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .editDoctorButton:hover, .adminMain .patientsTable .adminWrapper .adminControlMenuWrapper .editAdminButton:hover, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .editPatientButton:hover, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .editDoctorButton:hover, .adminMain .doctorsTable .patientWrapper .patientControlMenuWrapper .editAdminButton:hover, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .editPatientButton:hover, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .editDoctorButton:hover, .adminMain .doctorsTable .patientWrapper .doctorControlMenuWrapper .editAdminButton:hover, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .editPatientButton:hover, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .editDoctorButton:hover, .adminMain .doctorsTable .patientWrapper .adminControlMenuWrapper .editAdminButton:hover, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .editPatientButton:hover, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .editDoctorButton:hover, .adminMain .doctorsTable .doctorWrapper .patientControlMenuWrapper .editAdminButton:hover, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .editPatientButton:hover, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .editDoctorButton:hover, .adminMain .doctorsTable .doctorWrapper .doctorControlMenuWrapper .editAdminButton:hover, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .editPatientButton:hover, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .editDoctorButton:hover, .adminMain .doctorsTable .doctorWrapper .adminControlMenuWrapper .editAdminButton:hover, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .editPatientButton:hover, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .editDoctorButton:hover, .adminMain .doctorsTable .adminWrapper .patientControlMenuWrapper .editAdminButton:hover, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .editPatientButton:hover, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .editDoctorButton:hover, .adminMain .doctorsTable .adminWrapper .doctorControlMenuWrapper .editAdminButton:hover, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .editPatientButton:hover, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .editDoctorButton:hover, .adminMain .doctorsTable .adminWrapper .adminControlMenuWrapper .editAdminButton:hover, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .editPatientButton:hover, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .editDoctorButton:hover, .adminMain .adminsTable .patientWrapper .patientControlMenuWrapper .editAdminButton:hover, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .editPatientButton:hover, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .editDoctorButton:hover, .adminMain .adminsTable .patientWrapper .doctorControlMenuWrapper .editAdminButton:hover, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .editPatientButton:hover, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .editDoctorButton:hover, .adminMain .adminsTable .patientWrapper .adminControlMenuWrapper .editAdminButton:hover, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .editPatientButton:hover, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .editDoctorButton:hover, .adminMain .adminsTable .doctorWrapper .patientControlMenuWrapper .editAdminButton:hover, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .editPatientButton:hover, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .editDoctorButton:hover, .adminMain .adminsTable .doctorWrapper .doctorControlMenuWrapper .editAdminButton:hover, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .editPatientButton:hover, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .editDoctorButton:hover, .adminMain .adminsTable .doctorWrapper .adminControlMenuWrapper .editAdminButton:hover, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .editPatientButton:hover, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .editDoctorButton:hover, .adminMain .adminsTable .adminWrapper .patientControlMenuWrapper .editAdminButton:hover, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .editPatientButton:hover, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .editDoctorButton:hover, .adminMain .adminsTable .adminWrapper .doctorControlMenuWrapper .editAdminButton:hover, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .editPatientButton:hover, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .editDoctorButton:hover, .adminMain .adminsTable .adminWrapper .adminControlMenuWrapper .editAdminButton:hover {
+  cursor: pointer;
+  animation: smallControlMenuButtonSpinning 0.6s infinite forwards linear;
+}
+@keyframes smallControlMenuButtonSpinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.adminMain .patientsTable .notFoundTextError, .adminMain .doctorsTable .notFoundTextError, .adminMain .adminsTable .notFoundTextError {
+  color: grey;
+  background-color: #ebebeb;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0px;
+  font-size: clamp(1rem, 2vw, 1.8rem) !important;
+  text-align: center;
+  border-bottom: 3px solid #00416A;
+}
+.adminMain .logOutButton {
+  display: none;
+  padding: 10px 15px;
+  font-size: clamp(1rem, 1vw, 1.8rem) !important;
+  color: red;
+  border: 2px solid red;
+  border-radius: 5px;
+  transition: 0.2s all ease-in-out;
+}
+.adminMain .logOutButton:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+@media only screen and (max-width: 1150px) {
+  .adminMain .logOutButton {
+    display: block;
+  }
+}/*# sourceMappingURL=adminMain.css.map */

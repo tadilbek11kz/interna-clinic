@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,500;1,300&display=swap');
+
+$light-blue-color: #bfdbf7;
+$dark-blue-color: #00416A;
+$white-color: #ebebeb;
+$dark-font-color: #202020;
+$white-font-color: #ebebeb;
+$basic-font-family: 'IBM Plex Sans', sans-serif;
+
+html, body {
+    display: block;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: $light-blue-color;
+    overflow-x: hidden;
+}

@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,500;1,300&display=swap");
+html, body {
+  display: block;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #bfdbf7;
+  overflow-x: hidden;
+}
+
+.pageSelectorMenu {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(0.7rem, 1.5vw, 1.5rem) !important;
+  align-items: center;
+}
+.pageSelectorMenu .pageSelectorButton {
+  padding: 5px 15px;
+  color: #00416A;
+  background-color: transparent;
+  border: 1px solid #00416A;
+  border-radius: 5px;
+  transition: 0.2s all ease-in-out;
+}
+.pageSelectorMenu .pageSelectorButton:active:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}/*# sourceMappingURL=pagination.css.map */

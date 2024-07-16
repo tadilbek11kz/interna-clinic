@@ -1,0 +1,9 @@
+.adminPage {
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}/*# sourceMappingURL=adminPage.css.map */
