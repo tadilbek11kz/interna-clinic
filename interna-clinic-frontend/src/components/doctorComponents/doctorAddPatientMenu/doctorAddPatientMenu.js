@@ -46,7 +46,7 @@ const DoctorAddPatientMenu = ({ closeAddPatientMenuHandle, doctorId, doctorsPati
         medical_data_label: { type: 'label', translation: 'Медицинские данные (Этиология)' },
         cirrhosis: {
             type: 'multiple', options: ['ХГС', 'ХГВ', 'ХГД', 'НАЖБП/МАЖБП', 'Алкогольный стеатогепатит', 'Аутоиммунный гепатит', 'ПБХ', 'ПСХ', 'ПБХ + АИГ',
-                'ПСХ + АИГ', 'БВК', 'Гемохроматоз', 'Другое'],
+                'ПСХ + АИГ', 'БВК', 'Гемохроматоз', 'Другое', 'Нет цирроза печени'],
             translation: 'Цирроз печени в исходе', required: true,
             data_type: 'str'
         },
@@ -92,7 +92,7 @@ const DoctorAddPatientMenu = ({ closeAddPatientMenuHandle, doctorId, doctorsPati
         connection_test_b: { type: 'input', translation: 'Тест связывания чисел Б (в секундах)', required: true, data_type: 'float', default: 0.00 },
         connection_test_b_wrong: { type: 'enum', option: ['Да', 'Нет'], translation: "Наличие ошибок", required: true, data_type: 'str' },
 
-        symbol_test: { type: 'input', translation: 'Тест чисел и символов (в секундах)', required: true, data_type: 'float', default: 0.00 },
+        symbol_test: { type: 'input', translation: 'Тест чисел и символов (количество верно заполненных ячеек)', required: true, data_type: 'float', default: 0.00 },
         symbol_test_wrong: { type: 'enum', option: ['Да', 'Нет'], translation: "Наличие ошибок", required: true, data_type: 'str' },
 
         serial_test: { type: 'input', translation: 'Серийный тест точек (в секундах)', required: true, data_type: 'float', default: 0.00 },
@@ -108,7 +108,7 @@ const DoctorAddPatientMenu = ({ closeAddPatientMenuHandle, doctorId, doctorsPati
         },
         degree_of_encephalopathy_image: { type: 'image', src: encephalopathyTable },
         degree_of_encephalopathy: {
-            type: 'enum', options: ['Скрытая ISHEN – Минимальная WHC', 'Скрытая ISHEN - 1 WHC', 'Явная ISHEN 2', 'Явная ISHEN 3 WHC', 'Явная ISHEN 4 WHC'],
+            type: 'enum', options: ['Скрытая ISHEN – Минимальная WHC', 'Скрытая ISHEN - 1 WHC', 'Явная ISHEN 2', 'Явная ISHEN 3 WHC', 'Явная ISHEN 4 WHC', 'Нет энцефалопатии'],
             translation: 'Степень энцефалопатии', required: true, data_type: 'str'
         },
 
@@ -184,8 +184,16 @@ const DoctorAddPatientMenu = ({ closeAddPatientMenuHandle, doctorId, doctorsPati
         bad_habits: { type: 'multiple', options: ['Табакокурение', 'Злоупотребление алкоголем', 'Нет'], translation: 'Вредные привычки', required: true, data_type: 'str' }, //
         CP: { type: 'enum', options: ['Имелась', 'Отсутствовала'], translation: 'Приверженность к лечению по ЦП', required: true, data_type: 'str' },
         accepted_PE_medications: {
-            type: 'input', translation: 'Лекарственные препараты, принимаемые ранее по ПЭ Список принимаемых ЛС по ПЭ', required: false, data_type: 'str',
-            default: 'Нет'
+            type: 'enum',
+            options: [
+                'Лактулоза',
+                'Рифаксимин',
+                'L-орнитин L-аспартат',
+                'Ничего из вышеперечисленного',
+            ],
+            translation: 'Список принимаемых ЛС по ПЭ',
+            required: false,
+            data_type: 'str',
         },
         accepted_medications_at_the_time_of_inspection: {
             type: 'input', translation: 'Лекарственные препараты, принимаемые на момент осмотра', required: false, data_type: 'str',

@@ -526,7 +526,7 @@ const PatientMain = ({ patientIIN }) => {
                     <div className='patientDataBox'>{patientData.connection_test_b_wrong}</div>
                 </div>
                 <div className='patientDataWrapper'>
-                    <div className='patientDataLabel'>Тест чисел и символов (в секундах)</div>
+                    <div className='patientDataLabel'>Тест чисел и символов (количество верно заполненных ячеек)</div>
                     <div className='patientDataBox'>{patientData.symbol_test}</div>
                     <div className='patientDataLabel'>Наличие ошибок</div>
                     <div className='patientDataBox'>{patientData.symbol_test_wrong}</div>
@@ -687,7 +687,7 @@ const PatientMain = ({ patientIIN }) => {
                     <div className='patientDataBox'>{patientData.CP}</div>
                 </div>
                 <div className='patientDataWrapper'>
-                    <div className='patientDataLabel'>Лекарственные препараты, принимаемые ранее по ПЭ Список принимаемых ЛС по ПЭ</div>
+                    <div className='patientDataLabel'>Список принимаемых ЛС по ПЭ</div>
                     <div className='patientDataBox'>{patientData.accepted_PE_medications}</div>
                 </div>
                 <div className='patientDataWrapper'>
