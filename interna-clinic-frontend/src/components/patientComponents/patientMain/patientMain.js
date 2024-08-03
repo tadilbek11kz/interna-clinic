@@ -540,8 +540,11 @@ const PatientMain = ({ patientIIN }) => {
                 <div className='patientDataWrapper'>
                     <div className='patientDataLabel'>Тест линий (в секундах)</div>
                     <div className='patientDataBox'>{patientData.line_test}</div>
-                    <div className='patientDataLabel'>Наличие ошибок</div>
-                    <div className='patientDataBox'>{patientData.line_test_wrong}</div>
+                    <div className='patientDataLabel'>Количество касаний границы</div>
+                    <div className='patientDataBox'>{patientData.line_test_number_of_border_touches}</div>
+                    <div className='patientDataLabel'>Количество выходов за границы</div>
+                    <div className='patientDataBox'>{patientData.line_test_number_of_beyond_border}</div>
+
                 </div>
                 <div className='patientDataTogetherWrapper'>
                     <div className='patientDataWrapper'>

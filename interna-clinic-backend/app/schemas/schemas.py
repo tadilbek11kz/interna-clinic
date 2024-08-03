@@ -48,6 +48,8 @@ class PatientRead(BaseModel):
     symbol_test: float
     serial_test: float
     line_test: float
+    line_test_number_of_border_touches: float
+    line_test_number_of_beyond_border: float
     connection_test_a_wrong: str
     connection_test_b_wrong: str
     symbol_test_wrong: str
@@ -166,6 +168,8 @@ class PatientCreateRawPassword(BaseModel):
     symbol_test: float
     serial_test: float
     line_test: float
+    line_test_number_of_border_touches: float
+    line_test_number_of_beyond_border: float
     connection_test_a_wrong: str
     connection_test_b_wrong: str
     symbol_test_wrong: str
@@ -285,6 +289,8 @@ class PatientCreateHashedPassword(BaseModel):
     symbol_test: float
     serial_test: float
     line_test: float
+    line_test_number_of_border_touches: float
+    line_test_number_of_beyond_border: float
     connection_test_a_wrong: str
     connection_test_b_wrong: str
     symbol_test_wrong: str
@@ -402,6 +408,8 @@ class PatientUpdateRawPassword(BaseModel):
     symbol_test: float
     serial_test: float
     line_test: float
+    line_test_number_of_border_touches: float
+    line_test_number_of_beyond_border: float
     connection_test_a_wrong: str
     connection_test_b_wrong: str
     symbol_test_wrong: str
@@ -519,6 +527,8 @@ class PatientUpdateHashedPassword(BaseModel):
     symbol_test: float
     serial_test: float
     line_test: float
+    line_test_number_of_border_touches: float
+    line_test_number_of_beyond_border: float
     connection_test_a_wrong: str
     connection_test_b_wrong: str
     symbol_test_wrong: str

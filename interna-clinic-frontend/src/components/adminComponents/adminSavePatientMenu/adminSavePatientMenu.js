@@ -93,7 +93,8 @@ const AdminSavePatientMenu = ({ closeSavePatientMenuHandle, patientsData, setPat
         serial_test: 'Серийный тест точек (в секундах)',
         serial_test_wrong: 'Наличие ошибок   ',
         line_test: 'Тест линий (в секундах)',
-        line_test_wrong: 'Наличие ошибок    ',
+        line_test_number_of_border_touches: 'Количество касаний границы',
+        line_test_number_of_beyond_border: 'Количество выходов за границу',
 
         type_of_encephalopathy: 'Тип энцефалопатии',
         degree_of_encephalopathy: 'Степень энцефалопатии',

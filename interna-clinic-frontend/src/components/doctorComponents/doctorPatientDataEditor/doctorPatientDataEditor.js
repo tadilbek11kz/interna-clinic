@@ -98,7 +98,10 @@ const DoctorPatientDataEditor = ({ closePatientDataEditorHandle, patientId, doct
         serial_test_wrong: { type: 'enum', option: ['Да', 'Нет'], translation: "Наличие ошибок", required: true, data_type: 'str' },
 
         line_test: { type: 'input', translation: 'Тест линий (в секундах)', required: true, data_type: 'float', default: 0.00 },
-        line_test_wrong: { type: 'enum', option: ['Да', 'Нет'], translation: "Наличие ошибок", required: true, data_type: 'str' },
+
+        line_test_number_of_border_touches: { type: 'input', translation: 'Количество касаний границ', required: true, data_type: 'int', default: 0 },
+        line_test_number_of_beyond_border: { type: 'input', translation: 'Количество выходов за границу', required: true, data_type: 'int', default: 0 },
+
         type_of_encephalopathy: {
             type: 'enum', options: ['А (acute: ПЭ, ассоциированная с острой печеночной недостаточностью)',
                 'B (bypass: ПЭ, ассоциированная с портосистемным шунтированием)', 'C (cirrhosis: ПЭ, ассоциированная с ЦП)', 'Нет энцефалопатии'],
