@@ -48,6 +48,9 @@ class PatientRead(BaseModel):
     symbol_test: float
     serial_test: float
     line_test: float
+    line_test_number_of_border_touches: float
+    line_test_number_of_beyond_border: float
+    psychometric_index_PE: float
     connection_test_a_wrong: str
     connection_test_b_wrong: str
     symbol_test_wrong: str
@@ -166,11 +169,14 @@ class PatientCreateRawPassword(BaseModel):
     symbol_test: float
     serial_test: float
     line_test: float
+    line_test_number_of_border_touches: float
+    line_test_number_of_beyond_border: float
+    psychometric_index_PE: float
     connection_test_a_wrong: str
     connection_test_b_wrong: str
     symbol_test_wrong: str
     serial_test_wrong: str
-    line_test_wrong: str
+    line_test_wrong: str = "Нет"
     type_of_encephalopathy: str
     degree_of_encephalopathy: str
     process_of_encephalopathy: str = "Нет данных"
@@ -285,6 +291,9 @@ class PatientCreateHashedPassword(BaseModel):
     symbol_test: float
     serial_test: float
     line_test: float
+    line_test_number_of_border_touches: float
+    line_test_number_of_beyond_border: float
+    psychometric_index_PE: float
     connection_test_a_wrong: str
     connection_test_b_wrong: str
     symbol_test_wrong: str
@@ -402,11 +411,14 @@ class PatientUpdateRawPassword(BaseModel):
     symbol_test: float
     serial_test: float
     line_test: float
+    line_test_number_of_border_touches: float
+    line_test_number_of_beyond_border: float
+    psychometric_index_PE: float
     connection_test_a_wrong: str
     connection_test_b_wrong: str
     symbol_test_wrong: str
     serial_test_wrong: str
-    line_test_wrong: str
+    line_test_wrong: str = "Нет"
     type_of_encephalopathy: str
     degree_of_encephalopathy: str
     process_of_encephalopathy: str = "Нет данных"
@@ -519,6 +531,9 @@ class PatientUpdateHashedPassword(BaseModel):
     symbol_test: float
     serial_test: float
     line_test: float
+    line_test_number_of_border_touches: float
+    line_test_number_of_beyond_border: float
+    psychometric_index_PE: float
     connection_test_a_wrong: str
     connection_test_b_wrong: str
     symbol_test_wrong: str

@@ -526,7 +526,7 @@ const PatientMain = ({ patientIIN }) => {
                     <div className='patientDataBox'>{patientData.connection_test_b_wrong}</div>
                 </div>
                 <div className='patientDataWrapper'>
-                    <div className='patientDataLabel'>Тест чисел и символов (в секундах)</div>
+                    <div className='patientDataLabel'>Тест чисел и символов (количество верно заполненных ячеек)</div>
                     <div className='patientDataBox'>{patientData.symbol_test}</div>
                     <div className='patientDataLabel'>Наличие ошибок</div>
                     <div className='patientDataBox'>{patientData.symbol_test_wrong}</div>
@@ -540,8 +540,12 @@ const PatientMain = ({ patientIIN }) => {
                 <div className='patientDataWrapper'>
                     <div className='patientDataLabel'>Тест линий (в секундах)</div>
                     <div className='patientDataBox'>{patientData.line_test}</div>
-                    <div className='patientDataLabel'>Наличие ошибок</div>
-                    <div className='patientDataBox'>{patientData.line_test_wrong}</div>
+                    <div className='patientDataLabel'>Количество касаний границы</div>
+                    <div className='patientDataBox'>{patientData.line_test_number_of_border_touches}</div>
+                    <div className='patientDataLabel'>Количество выходов за границы</div>
+                    <div className='patientDataBox'>{patientData.line_test_number_of_beyond_border}</div>
+                    <div className='patientDataLabel'>Психометрический индекс ПЭ</div>
+                    <div className='patientDataBox'>{patientData.psychometric_index_PE}</div>
                 </div>
                 <div className='patientDataTogetherWrapper'>
                     <div className='patientDataWrapper'>
@@ -687,7 +691,7 @@ const PatientMain = ({ patientIIN }) => {
                     <div className='patientDataBox'>{patientData.CP}</div>
                 </div>
                 <div className='patientDataWrapper'>
-                    <div className='patientDataLabel'>Лекарственные препараты, принимаемые ранее по ПЭ Список принимаемых ЛС по ПЭ</div>
+                    <div className='patientDataLabel'>Список принимаемых ЛС по ПЭ</div>
                     <div className='patientDataBox'>{patientData.accepted_PE_medications}</div>
                 </div>
                 <div className='patientDataWrapper'>

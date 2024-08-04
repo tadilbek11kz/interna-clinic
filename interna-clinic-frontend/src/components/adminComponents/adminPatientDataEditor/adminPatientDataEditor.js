@@ -49,7 +49,7 @@ const AdminPatientDataEditor = ({ closePatientDataEditorHandle, patientId, patie
         was_involved_in_car_accidents: { type: 'enum', options: ['Да', 'Нет'], translation: 'Был ли участником ДТП за последний год?', required: true, data_type: 'str' },
         cirrhosis: {
             type: 'multiple', options: ['ХГС', 'ХГВ', 'ХГД', 'НАЖБП/МАЖБП', 'Алкогольный стеатогепатит', 'Аутоиммунный гепатит', 'ПБХ', 'ПСХ', 'ПБХ + АИГ',
-                'ПСХ + АИГ', 'БВК', 'Гемохроматоз', 'Другое'],
+                'ПСХ + АИГ', 'БВК', 'Гемохроматоз', 'Другое', 'Нет цирроза печени'],
             translation: 'Цирроз печени в исходе', required: true,
             data_type: 'str'
         },
@@ -93,22 +93,26 @@ const AdminPatientDataEditor = ({ closePatientDataEditorHandle, patientId, patie
         connection_test_b: { type: 'input', translation: 'Тест связывания чисел Б (в секундах)', required: true, data_type: 'float', default: 0.00 },
         connection_test_b_wrong: { type: 'enum', option: ['Да', 'Нет'], translation: "Наличие ошибок", required: true, data_type: 'str' },
 
-        symbol_test: { type: 'input', translation: 'Тест чисел и символов (в секундах)', required: true, data_type: 'float', default: 0.00 },
+        symbol_test: { type: 'input', translation: 'Тест чисел и символов (количество верно заполненных ячеек)', required: true, data_type: 'float', default: 0.00 },
         symbol_test_wrong: { type: 'enum', option: ['Да', 'Нет'], translation: "Наличие ошибок", required: true, data_type: 'str' },
 
         serial_test: { type: 'input', translation: 'Серийный тест точек (в секундах)', required: true, data_type: 'float', default: 0.00 },
         serial_test_wrong: { type: 'enum', option: ['Да', 'Нет'], translation: "Наличие ошибок", required: true, data_type: 'str' },
 
         line_test: { type: 'input', translation: 'Тест линий (в секундах)', required: true, data_type: 'float', default: 0.00 },
-        line_test_wrong: { type: 'enum', option: ['Да', 'Нет'], translation: "Наличие ошибок", required: true, data_type: 'str' },
+
+        line_test_number_of_border_touches: { type: 'input', translation: 'Количество касаний границы', required: true, data_type: 'float', default: 0.00 },
+        line_test_number_of_beyond_border: { type: 'input', translation: 'Количество выходов за границы', required: true, data_type: 'float', default: 0.00 },
+        psychometric_index_PE: { type: 'input', translation: 'Психометрический индекс ПЭ', required: true, data_type: 'float', default: 0.00 },
+
         type_of_encephalopathy: {
             type: 'enum', options: ['А (acute: ПЭ, ассоциированная с острой печеночной недостаточностью)',
-                'B (bypass: ПЭ, ассоциированная с портосистемным шунтированием)', 'C (cirrhosis: ПЭ, ассоциированная с ЦП)'],
+                'B (bypass: ПЭ, ассоциированная с портосистемным шунтированием)', 'C (cirrhosis: ПЭ, ассоциированная с ЦП)', 'Нет энцефалопатии'],
             translation: 'Тип энцефалопатии', required: true, data_type: 'str'
         },
         degree_of_encephalopathy_image: { type: 'image', src: encephalopathyTable },
         degree_of_encephalopathy: {
-            type: 'enum', options: ['Скрытая ISHEN – Минимальная WHC', 'Скрытая ISHEN - 1 WHC', 'Явная ISHEN 2', 'Явная ISHEN 3 WHC', 'Явная ISHEN 4 WHC'],
+            type: 'enum', options: ['Скрытая ISHEN – Минимальная WHC', 'Скрытая ISHEN - 1 WHC', 'Явная ISHEN 2', 'Явная ISHEN 3 WHC', 'Явная ISHEN 4 WHC', 'Нет энцефалопатии'],
             translation: 'Степень энцефалопатии', required: true, data_type: 'str'
         },
 
@@ -190,7 +194,18 @@ const AdminPatientDataEditor = ({ closePatientDataEditorHandle, patientId, patie
         renal_impairment: { type: 'enum', options: ['Да', 'Нет'], translation: 'Почечная недостаточность', required: true, data_type: 'str' },
         bad_habits: { type: 'multiple', options: ['Табакокурение', 'Злоупотребление алкоголем', 'Нет'], translation: 'Вредные привычки', required: true, data_type: 'str' },
         CP: { type: 'enum', options: ['Имелась', 'Отсутствовала'], translation: 'Приверженность к лечению по ЦП', required: true, data_type: 'str' },
-        accepted_PE_medications: { type: 'input', translation: 'Лекарственные препараты, принимаемые ранее по ПЭ Список принимаемых ЛС по ПЭ', required: true, data_type: 'str' },
+        accepted_PE_medications: {
+            type: 'enum',
+            options: [
+                'Лактулоза',
+                'Рифаксимин',
+                'L-орнитин L-аспартат',
+                'Ничего из вышеперечисленного',
+            ],
+            translation: 'Список принимаемых ЛС по ПЭ',
+            required: true,
+            data_type: 'str',
+        },
         accepted_medications_at_the_time_of_inspection: { type: 'input', translation: 'Лекарственные препараты, принимаемые на момент осмотра', required: true, data_type: 'str' },
 
         // REQUIRED
@@ -680,11 +695,11 @@ const AdminPatientDataEditor = ({ closePatientDataEditorHandle, patientId, patie
                                     <div className='patientDataInputsWrapper' key={fieldKey}>
                                         <label className='patientDataLabel'>{field.translation || fieldKey}</label>
                                         <select className='patientDataSelect' onChange={(event) => handleInputChange(fieldKey, event)} defaultValue={value}>
-                                            {fieldKey === 'doctor_id' ? doctorsData.map((doctor) => (
-                                                <option key={doctor.id} value={doctor.id}>
-                                                    {`${doctor.last_name} ${doctor.first_name} ${doctor.middle_name}`}
+                                            {fieldKey === 'doctor_id' ? doctorsData?.map((doctor) => (
+                                                <option key={doctor?.id} value={doctor?.id}>
+                                                    {`${doctor?.last_name} ${doctor?.first_name} ${doctor?.middle_name}`}
                                                 </option>
-                                            )) : field.options.map(option => {
+                                            )) : field.options?.map(option => {
                                                 if (typeof option === 'object') {
                                                     return Object.keys(option).map(key => (
                                                         <option key={key} value={key}>{key}</option>

@@ -138,7 +138,7 @@ class PatientRepository:
 
             if key == "disease_data" and value == 'Да':
                 values += ["indirect_elastography_of_liver", "indirect_elastography_of_spleen", "EVV", "red_flags_EVV", "presence_of_ascites",
-                           "connection_test_a", "connection_test_b", "symbol_test", "serial_test", "line_test", "connection_test_a_wrong", "connection_test_b_wrong", "symbol_test_wrong", "serial_test_wrong", "line_test_wrong", "type_of_encephalopathy", "degree_of_encephalopathy", "process_of_encephalopathy", "presence_of_precipitating_factors"]
+                           "connection_test_a", "connection_test_b", "symbol_test", "serial_test", "line_test", "line_test_number_of_border_touches", "line_test_number_of_beyond_border", "psychometric_index_PE", "connection_test_a_wrong", "connection_test_b_wrong", "symbol_test_wrong", "serial_test_wrong", "line_test_wrong", "type_of_encephalopathy", "degree_of_encephalopathy", "process_of_encephalopathy", "presence_of_precipitating_factors"]
 
             if key == "history_data" and value == 'Да':
                 values += ["comorbidities", "was_planned_hospitalized_with_liver_diseases", "number_of_planned_hospitalizations_with_liver_diseases", "was_planned_hospitalized_without_liver_diseases", "number_of_planned_hospitalizations_without_liver_diseases", "was_emergency_hospitalized_with_liver_diseases",
