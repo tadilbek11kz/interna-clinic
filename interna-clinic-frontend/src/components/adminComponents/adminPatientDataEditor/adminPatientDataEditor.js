@@ -695,11 +695,11 @@ const AdminPatientDataEditor = ({ closePatientDataEditorHandle, patientId, patie
                                     <div className='patientDataInputsWrapper' key={fieldKey}>
                                         <label className='patientDataLabel'>{field.translation || fieldKey}</label>
                                         <select className='patientDataSelect' onChange={(event) => handleInputChange(fieldKey, event)} defaultValue={value}>
-                                            {fieldKey === 'doctor_id' ? doctorsData.map((doctor) => (
-                                                <option key={doctor.id} value={doctor.id}>
-                                                    {`${doctor.last_name} ${doctor.first_name} ${doctor.middle_name}`}
+                                            {fieldKey === 'doctor_id' ? doctorsData?.map((doctor) => (
+                                                <option key={doctor?.id} value={doctor?.id}>
+                                                    {`${doctor?.last_name} ${doctor?.first_name} ${doctor?.middle_name}`}
                                                 </option>
-                                            )) : field.options.map(option => {
+                                            )) : field.options?.map(option => {
                                                 if (typeof option === 'object') {
                                                     return Object.keys(option).map(key => (
                                                         <option key={key} value={key}>{key}</option>

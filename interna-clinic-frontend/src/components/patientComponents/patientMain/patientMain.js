@@ -544,7 +544,8 @@ const PatientMain = ({ patientIIN }) => {
                     <div className='patientDataBox'>{patientData.line_test_number_of_border_touches}</div>
                     <div className='patientDataLabel'>Количество выходов за границы</div>
                     <div className='patientDataBox'>{patientData.line_test_number_of_beyond_border}</div>
-
+                    <div className='patientDataLabel'>Психометрический индекс ПЭ</div>
+                    <div className='patientDataBox'>{patientData.psychometric_index_PE}</div>
                 </div>
                 <div className='patientDataTogetherWrapper'>
                     <div className='patientDataWrapper'>
