@@ -100,8 +100,9 @@ const DoctorAddPatientMenu = ({ closeAddPatientMenuHandle, doctorId, doctorsPati
 
         line_test: { type: 'input', translation: 'Тест линий (в секундах)', required: true, data_type: 'float', default: 0.00 },
 
-        line_test_number_of_border_touches: { type: 'input', translation: 'Количество касаний границ', required: true, data_type: 'int', default: 0 },
-        line_test_number_of_beyond_border: { type: 'input', translation: 'Количество выходов за границу', required: true, data_type: 'int', default: 0 },
+        line_test_number_of_border_touches: { type: 'input', translation: 'Количество касаний границы', required: true, data_type: 'float', default: 0.00 },
+        line_test_number_of_beyond_border: { type: 'input', translation: 'Количество выходов за границы', required: true, data_type: 'float', default: 0.00 },
+        psychometric_index_PE: { type: 'input', translation: 'Психометрический индекс ПЭ', required: true, data_type: 'float', default: 0.00 },
 
         type_of_encephalopathy: {
             type: 'enum', options: ['А (acute: ПЭ, ассоциированная с острой печеночной недостаточностью)',

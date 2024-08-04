@@ -89,6 +89,7 @@ async def create_patient(new_patient_data: PatientCreateRawPassword, token: str 
     Returns:
         created patient (dict[str, Any])
     """
+    print("create patient")
 
     new_patient = await patient_service.create_patient(token, new_patient_data)
 
